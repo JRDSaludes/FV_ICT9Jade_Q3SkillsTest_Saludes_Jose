@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q3 Skills Test</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    background-image: url('https://t3.ftcdn.net/jpg/04/29/97/24/360_F_429972422_idgQSEcP8Ur9ky1ZXXUlrGwx39wUjyqH.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.translucent {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    padding: 25px;
+}
+</style>
+</head>
+
+<body class="p-4">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Q3 Skills Test</a>
+    <div class="d-flex">
+      <input class="form-control me-2" type="text" placeholder="Search">
+      <button class="btn btn-warning" type="button">Search</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<div class="container translucent text-white" style="max-width:650px;">
+
+<h1 class="text-center mb-3">ICT Skills Demo Page</h1>
+
+<p>This page demonstrates basic HTML structure, Bootstrap styling, and simple JavaScript functions with buttons and events.</p>
+
+<p>Reference site:
+<a href="https://www.w3schools.com" target="_blank" class="text-info">w3schools.com</a>
+</p>
+
+<hr>
+
+<h2 class="mb-3">Laptop Budget Finder</h2>
+
+<label>Enter Budget:</label>
+<input type="number" id="budget" class="form-control form-control-lg mb-3">
+
+<button class="btn btn-success w-100 mb-3" onclick="locateProduct()">Find Product</button>
+
+<h5>Recommended Brand</h5>
+<p id="brand"></p>
+
+<h5>Store</h5>
+<p id="store"></p>
+
+<h5>Discounted Price</h5>
+<p id="price"></p>
+
+<hr>
+
+<h2 class="mb-3">Mini Calculator</h2>
+
+<label>Number 1:</label>
+<input type="number" id="num1" class="form-control mb-2">
+
+<label>Number 2:</label>
+<input type="number" id="num2" class="form-control mb-3">
+
+<button class="btn btn-primary w-100 mb-2" onclick="add()">Add</button>
+<button class="btn btn-primary w-100 mb-2" onclick="subtract()">Subtract</button>
+<button class="btn btn-primary w-100 mb-2" onclick="multiply()">Multiply</button>
+<button class="btn btn-primary w-100 mb-3" onclick="divide()">Divide</button>
+
+<p id="result" class="fw-bold"></p>
+
+</div>
+
+<script>
+function locateProduct() {
+
+    // get budget value
+    var b = Number(document.getElementById("budget").value);
+
+    // declare variables
+    var brand = "";
+    var store = "";
+    var basePrice = 0;
+
+    // conditions
+    if (b <= 30000) {
+        brand = "Acer Aspire";
+        store = "Silicon Valley";
+        basePrice = 28000;
+    }
+
+    if (b > 30000 && b <= 50000) {
+        brand = "Lenovo IdeaPad Gaming";
+        store = "VillMan Computers";
+        basePrice = 45000;
+    }
+
+    if (b > 50000) {
+        brand = "ASUS TUF Gaming";
+        store = "VillMan Computers";
+        basePrice = 72000;
+    }
+
+    // operator for discount
+    var disc = basePrice * 0.90;
+    let finalPrice = disc.toFixed(2); // round off discount to 2 decimal places
+
+    // output
+    document.getElementById("brand").innerHTML = brand;
+    document.getElementById("store").innerHTML = store;
+    document.getElementById("price").innerHTML = "₱" + finalPrice;
+}
+
+// calculator functions
+
+function add() {
+    var n1 = Number(document.getElementById("num1").value);
+    var n2 = Number(document.getElementById("num2").value);
+    var ans = n1 + n2;
+    document.getElementById("result").innerHTML = "Answer: " + ans;
+}
+
+function subtract() {
+    var n1 = Number(document.getElementById("num1").value);
+    var n2 = Number(document.getElementById("num2").value);
+    var ans = n1 - n2;
+    document.getElementById("result").innerHTML = "Answer: " + ans;
+}
+
+function multiply() {
+    var n1 = Number(document.getElementById("num1").value);
+    var n2 = Number(document.getElementById("num2").value);
+    var ans = n1 * n2;
+    document.getElementById("result").innerHTML = "Answer: " + ans;
+}
+
+function divide() {
+    var n1 = Number(document.getElementById("num1").value);
+    var n2 = Number(document.getElementById("num2").value);
+    var ans = n1 / n2;
+    document.getElementById("result").innerHTML = "Answer: " + ans;
+}
+</script>
+
+</body>
+</html>
